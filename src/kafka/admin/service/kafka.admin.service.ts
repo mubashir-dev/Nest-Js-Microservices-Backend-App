@@ -28,7 +28,7 @@ export class KafkaAdminService implements OnModuleInit {
 
         this.kafkaOptions = {
             clientId: this.clientId,
-            brokers: this.brokers,
+            brokers: ['localhost:9092'],
         };
 
         this.defaultPartition = this.configService.get<number>(

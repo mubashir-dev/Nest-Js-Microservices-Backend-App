@@ -30,6 +30,10 @@ export class AuthPublicController {
         private readonly roleService: RoleService
     ) {}
 
+    @Post('/test')
+    async test(){
+      return 'hello w';
+    };
     @Response('auth.signUp')
     @Post('/sign-up')
     async signUp(

@@ -10,6 +10,11 @@ import { AuthModule } from 'src/auth/auth.module';
 import { CoreModule } from 'src/core/core.module';
 import { AuthApiSeed } from './auth.api.seed';
 import { SettingSeed } from './setting.seed';
+import { CategoryModule } from 'src/category/category.module'
+import { CategorySeed } from './category.api.seed';
+import { ProductModule } from '../../product/product.module';
+import { ProductSeed } from './product.seed';
+
 
 @Module({
     imports: [
@@ -19,8 +24,10 @@ import { SettingSeed } from './setting.seed';
         AuthModule,
         UserModule,
         RoleModule,
+        CategoryModule,
+        ProductModule
     ],
-    providers: [AuthApiSeed, PermissionSeed, RoleSeed, UserSeed, SettingSeed],
+    providers: [AuthApiSeed,CategorySeed,ProductSeed, PermissionSeed, RoleSeed, UserSeed, SettingSeed],
     exports: [],
 })
 export class SeedsModule {}
