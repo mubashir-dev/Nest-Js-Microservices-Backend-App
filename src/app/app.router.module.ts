@@ -6,6 +6,7 @@ import { RouterCommonModule } from 'src/router/router.common.module';
 import { RouterEnumModule } from 'src/router/router.enum.module';
 import { RouterPublicModule } from 'src/router/router.public.module';
 import { RouterTestModule } from 'src/router/router.test.module';
+import { RouterUserModule } from '../router/router.user.module';
 
 @Module({})
 export class AppRouterModule {
@@ -23,6 +24,7 @@ export class AppRouterModule {
                     RouterPublicModule,
                     RouterAdminModule,
                     RouterCallbackModule,
+                    RouterUserModule,
                     RouterModule.register([
                         {
                             path: '/',
@@ -48,6 +50,10 @@ export class AppRouterModule {
                             path: '/callback',
                             module: RouterCallbackModule,
                         },
+                        {
+                            path: '/user',
+                            module: RouterUserModule,
+                        }
                     ]),
                 ],
             };

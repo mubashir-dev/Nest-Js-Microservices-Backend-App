@@ -7,9 +7,8 @@ import {
     IsMongoId,
    IsBoolean,
 } from 'class-validator';
-import { CategoryApiEntity } from '../../category/schema/category.api.schema';
 
-export class ProductCreateDto {
+export class MovieCreateDto {
     @IsString()
     @IsNotEmpty()
     @MinLength(3)
@@ -27,7 +26,7 @@ export class ProductCreateDto {
     @Type(() => String)
     readonly isActive?: boolean;
 
-    @IsNotEmpty()
     @IsMongoId()
-    readonly category: CategoryApiEntity;
+    @IsNotEmpty()
+    readonly category: string;
 }

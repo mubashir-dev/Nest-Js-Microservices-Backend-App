@@ -5,19 +5,20 @@ import {
     IDatabaseFindAllOptions,
     IDatabaseFindOneOptions,
 } from 'src/database/database.interface';
-import { CategoryApiDocument, CategoryApiEntity } from '../schema/category.api.schema';
+import { CategoryDocument, CategoryEntity } from '../schema/category.schema';
 
 @Injectable()
 export class CategoryService {
     constructor(
-        @DatabaseEntity(CategoryApiEntity.name)
-        private readonly categoryModel: Model<CategoryApiDocument>
-    ) {}
+        @DatabaseEntity(CategoryEntity.name)
+        private readonly categoryModel: Model<CategoryDocument>,
+    ) {
+    }
 
     async findAll(
         find?: Record<string, any>,
-        options?: IDatabaseFindAllOptions
-    ): Promise<CategoryApiDocument[]> {
+        options?: IDatabaseFindAllOptions,
+    ): Promise<CategoryDocument[]> {
         const categories = this.categoryModel.find(find);
         if (
             options &&
@@ -36,7 +37,7 @@ export class CategoryService {
 
     async findOne<T>(
         find?: Record<string, any>,
-        options?: IDatabaseFindOneOptions
+        options?: IDatabaseFindOneOptions,
     ): Promise<T> {
         const category = this.categoryModel.findOne(find);
         return category.lean();

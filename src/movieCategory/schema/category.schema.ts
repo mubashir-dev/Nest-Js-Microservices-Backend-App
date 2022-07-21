@@ -1,8 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 
 @Schema({ timestamps: true, versionKey: false })
-export class CategoryApiEntity {
+export class CategoryEntity {
     @Prop({
         required: true,
         unique: true,
@@ -21,7 +21,6 @@ export class CategoryApiEntity {
     isActive: boolean;
 }
 
-export const CategoryApiDatabaseName = 'categories';
-export const CategoryApiSchema = SchemaFactory.createForClass(CategoryApiEntity);
-
-export type CategoryApiDocument = CategoryApiEntity & Document;
+export const CategoryDatabaseName = 'categories';
+export const CategorySchema = SchemaFactory.createForClass(CategoryEntity);
+export type CategoryDocument = CategoryEntity & Document;

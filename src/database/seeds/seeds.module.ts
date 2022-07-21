@@ -10,10 +10,10 @@ import { AuthModule } from 'src/auth/auth.module';
 import { CoreModule } from 'src/core/core.module';
 import { AuthApiSeed } from './auth.api.seed';
 import { SettingSeed } from './setting.seed';
-import { CategoryModule } from 'src/category/category.module'
-import { CategorySeed } from './category.api.seed';
-import { ProductModule } from '../../product/product.module';
-import { ProductSeed } from './product.seed';
+import { MovieCategoryModule } from 'src/movieCategory/movieCategory.module'
+import { CategorySeed } from './category.seed';
+import { MovieModule } from '../../movie/movie.module';
+import { MovieSeed } from './movie.seed';
 
 
 @Module({
@@ -24,10 +24,10 @@ import { ProductSeed } from './product.seed';
         AuthModule,
         UserModule,
         RoleModule,
-        CategoryModule,
-        ProductModule
+        MovieCategoryModule,
+        MovieModule
     ],
-    providers: [AuthApiSeed,CategorySeed,ProductSeed, PermissionSeed, RoleSeed, UserSeed, SettingSeed],
+    providers: [AuthApiSeed,CategorySeed,MovieSeed, PermissionSeed, RoleSeed, UserSeed, SettingSeed],
     exports: [],
 })
 export class SeedsModule {}

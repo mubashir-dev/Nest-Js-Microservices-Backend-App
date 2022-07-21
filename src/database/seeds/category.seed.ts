@@ -1,6 +1,6 @@
 import { Command } from 'nestjs-command';
 import { Injectable } from '@nestjs/common';
-import { CategoryBulkService } from '../../category/service/category.api.bulk.service';
+import { CategoryBulkService } from '../../movieCategory/service/category.bulkService';
 
 @Injectable()
 export class CategorySeed {

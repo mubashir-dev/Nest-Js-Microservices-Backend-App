@@ -7,7 +7,7 @@ import {
     IsOptional,
 } from 'class-validator';
 
-export class CategoryApiCreateDto {
+export class CategoryCreateDto {
     @IsString()
     @IsNotEmpty()
     @MinLength(3)

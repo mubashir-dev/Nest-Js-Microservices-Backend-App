@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DATABASE_CONNECTION_NAME } from '../database/database.constant';
-import { CategoryApiDatabaseName, CategoryApiEntity, CategoryApiSchema } from './schema/category.api.schema';
-import { CategoryBulkService } from './service/category.api.bulk.service';
+import { CategoryDatabaseName, CategoryEntity, CategorySchema } from './schema/category.schema';
+import { CategoryBulkService } from './service/category.bulkService';
 import { CategoryService } from './service/category.service';
 
 @Module({
@@ -13,12 +13,12 @@ import { CategoryService } from './service/category.service';
         MongooseModule.forFeature(
             [
                 {
-                    name: CategoryApiEntity.name,
-                    schema: CategoryApiSchema,
-                    collection: CategoryApiDatabaseName,
+                    name: CategoryEntity.name,
+                    schema: CategorySchema,
+                    collection: CategoryDatabaseName,
                 },
             ],
             DATABASE_CONNECTION_NAME
         ),
     ],})
-export class CategoryModule {}
+export class MovieCategoryModule {}
