@@ -26,19 +26,18 @@ export class AuthSignUpDto {
     readonly firstName: string;
 
     @IsString()
-    @IsOptional()
-    @ValidateIf((e) => e.lastName !== '')
+@IsNotEmpty()
     @MinLength(1)
     @MaxLength(30)
     @Type(() => String)
-    readonly lastName?: string;
+    readonly lastName: string;
 
     @IsString()
     @IsNotEmpty()
     @MinLength(10)
     @MaxLength(14)
     @Type(() => String)
-    @IsStartWith(['628'])
+    @IsStartWith(['+92'])
     readonly mobileNumber: string;
 
     @IsNotEmpty()

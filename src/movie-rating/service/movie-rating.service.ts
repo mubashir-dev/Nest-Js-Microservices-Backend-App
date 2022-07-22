@@ -30,7 +30,7 @@ export class MovieRatingService {
             return create.save();
         }
         ratingExists.rating = parseInt(rating);
-        return ratingExists.updateOne();
+        return ratingExists.save();
     }
 
 }

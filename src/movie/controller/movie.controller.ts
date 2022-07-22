@@ -1,7 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { PaginationService } from '../../pagination/service/pagination.service';
 import { MovieService } from '../service/movie.service';
-import { ResponsePaging } from '../../utils/response/response.decorator';
 import { IResponsePaging } from '../../utils/response/response.interface';
 import { MovieDocument } from '../schema/movie.schema';
 import { MovieListDto } from '../dto/movie.list.dto';
