@@ -1,7 +1,7 @@
 import { Command } from 'nestjs-command';
 import { MovieBulkService } from 'src/movie/service/movie.builkService';
-import { CategoryDocument } from '../../movieCategory/schema/category.schema';
-import { CategoryService } from '../../movieCategory/service/category.service';
+import { CategoryDocument } from '../../movie-category/schema/category.schema';
+import { CategoryService } from '../../movie-category/service/category.service';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -18,7 +18,6 @@ export class MovieSeed {
     async insert(): Promise<void> {
         const categories: CategoryDocument[] =
             await this.categoryService.findAll();
-        console.log('categories: ', categories);
         try {
             await this.movieBulkService.createMany([
                 {
@@ -41,7 +40,34 @@ export class MovieSeed {
                     description:'Z War description',
                     category:categories[3]._id,
                 },
-
+                {
+                    title:'Z Nation',
+                    description:'Z Nation description',
+                    category:categories[3]._id,
+                },
+                {
+                    title:'Last Man on Earth',
+                    description:'Last Man description',
+                    category:categories[3]._id,
+                },
+                {
+                    title:'1917',
+                    description:'1917 description',
+                    category:categories[3]._id,
+                },
+                {
+                    title:'Titanic',
+                    description:'Titanic description',
+                    category:categories[3]._id,
+                },
+                {
+                    title:'Big Game',
+                    description:'Power Game description',
+                    category:categories[3]._id,
+                },
+                {title:'The 100',
+                    description:'The 100 description',
+                    category:categories[3]._id,}
             ]);
         } catch (e) {
             throw new Error(e.message);

@@ -5,7 +5,7 @@ import { MovieDatabaseName, MovieEntity, MovieSchema } from './schema/movie.sche
 import { MovieBulkService } from './service/movie.builkService';
 import { MovieController } from './controller/movie.controller';
 import { MovieService } from './service/movie.service';
-import { CategoryDatabaseName, CategoryEntity, CategorySchema } from '../movieCategory/schema/category.schema';
+import { CategoryDatabaseName, CategoryEntity, CategorySchema } from '../movie-category/schema/category.schema';
 
 @Module({
     controllers:[MovieController],

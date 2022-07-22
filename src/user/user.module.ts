@@ -4,7 +4,7 @@ import { DATABASE_CONNECTION_NAME } from 'src/database/database.constant';
 import { UserService } from './service/user.service';
 import { UserBulkService } from './service/user.bulk.service';
 import { UserDatabaseName, UserEntity, UserSchema } from './schema/user.schema';
-import { CategoryDatabaseName, CategoryEntity, CategorySchema } from '../movieCategory/schema/category.schema';
+import { CategoryDatabaseName, CategoryEntity, CategorySchema } from '../movie-category/schema/category.schema';
 
 @Module({
     imports: [

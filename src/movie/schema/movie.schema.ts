@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { CategoryEntity } from '../../movieCategory/schema/category.schema';
+import { CategoryEntity } from '../../movie-category/schema/category.schema';
 import { Types } from 'mongoose';
 
 @Schema({ timestamps: true, versionKey: false })

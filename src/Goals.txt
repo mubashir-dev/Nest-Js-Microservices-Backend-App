@@ -1,7 +1,7 @@
 Create the following API's
-Login / Signup / Change Password
-Categories list (from seed data like: Action, Horror, Comedy, Animated)
+Login / Signup / Change Password => Done
+Categories list (from seed data like: Action, Horror, Comedy, Animated) => Done
 Update User Profile (name, address, image, DOB, categories(1 or many))
-Movies list with category (create movies from seed data)
-User give rating to movies (From 1 to 5)
-List Recommended movies (against the login user)
+Movies list with category (create movies from seed data) => Done
+User give rating to movies (From 1 to 5) = > Done
+List Recommended movies (against the login user) => Done

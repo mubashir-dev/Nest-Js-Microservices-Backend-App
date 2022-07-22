@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { CategoryEntity } from '../../movieCategory/schema/category.schema';
+import { CategoryEntity } from '../../movie-category/schema/category.schema';
 
 export class MovieListSerialization {
     @Type(() => String)

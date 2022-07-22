@@ -10,7 +10,7 @@ import { AuthModule } from 'src/auth/auth.module';
 import { CoreModule } from 'src/core/core.module';
 import { AuthApiSeed } from './auth.api.seed';
 import { SettingSeed } from './setting.seed';
-import { MovieCategoryModule } from 'src/movieCategory/movieCategory.module'
+import { MovieCategoryModule } from 'src/movie-category/movieCategory.module'
 import { CategorySeed } from './category.seed';
 import { MovieModule } from '../../movie/movie.module';
 import { MovieSeed } from './movie.seed';
