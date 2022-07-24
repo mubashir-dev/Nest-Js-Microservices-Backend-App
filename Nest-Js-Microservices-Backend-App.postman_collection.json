@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "45a78086-706b-4142-a40c-0fa6b40387c3",
+		"name": "Nest-Js-Microservices-Backend-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9575943"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign-Up",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ4MWNhNTE4NWJhNmM3NDM3OTkxZDEiLCJtb2JpbGVOdW1iZXIiOiIwODExMTExMTIyMiIsImVtYWlsIjoic3VwZXJhZG1pbkBtYWlsLmNvbSIsInJvbGUiOnsibmFtZSI6InN1cGVyYWRtaW4iLCJwZXJtaXNzaW9ucyI6W10sImlzQWN0aXZlIjp0cnVlLCJhY2Nlc3NGb3IiOiJTVVBFUl9BRE1JTiJ9LCJwYXNzd29yZEV4cGlyZWQiOiIyMDIzLTAxLTE4VDE1OjE3OjU3LjkxOFoiLCJpc0FjdGl2ZSI6dHJ1ZSwicmVtZW1iZXJNZSI6ZmFsc2UsImxvZ2luRGF0ZSI6IjIwMjItMDctMjBUMTc6NTU6MjQuODg5WiIsImlhdCI6MTY1ODMzOTcyNCwibmJmIjoxNjU4MzM5NzI0LCJleHAiOjE2NjAxMzk3MjR9.UXzsGtbsvCOXpn6Wh0fP5HoC0tzAmXTulv0EaNBzPO0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Sheraz ",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Khan",
+									"type": "text"
+								},
+								{
+									"key": "mobileNumber",
+									"value": "+92 3112345679",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "#!Password1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/public/auth/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"public",
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "#!Password2",
+									"type": "text"
+								},
+								{
+									"key": "rememberMe",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Passwrod",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmRiMzEwNzlkMzJhMmM3OWU0NDE3MTIiLCJtb2JpbGVOdW1iZXIiOiIrOTIgMzExMjM0NTY3OSIsImVtYWlsIjoidGVzdDFAZ21haWwuY29tIiwicm9sZSI6eyJuYW1lIjoidXNlciIsInBlcm1pc3Npb25zIjpbXSwiaXNBY3RpdmUiOnRydWUsImFjY2Vzc0ZvciI6IlVTRVIifSwicGFzc3dvcmRFeHBpcmVkIjoiMjAyMy0wMS0yMFQyMzoyMTo0My4zMDFaIiwiaXNBY3RpdmUiOnRydWUsInJlbWVtYmVyTWUiOmZhbHNlLCJsb2dpbkRhdGUiOiIyMDIyLTA3LTIyVDIzOjIxOjQzLjQ2N1oiLCJpYXQiOjE2NTg1MzIxMDMsIm5iZiI6MTY1ODUzMjEwMywiZXhwIjoxNjYwMzMyMTAzfQ.K_G5hU-qL6tWf1UOxm3ba_04UA-kCqAG7DnXsyo7ieg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "oldPassword",
+									"value": "#!Password1",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "#!Password2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmRiMzEwNzlkMzJhMmM3OWU0NDE3MTIiLCJtb2JpbGVOdW1iZXIiOiIrOTIgMzExMjM0NTY3OSIsImVtYWlsIjoidGVzdDFAZ21haWwuY29tIiwicm9sZSI6eyJuYW1lIjoidXNlciIsInBlcm1pc3Npb25zIjpbXSwiaXNBY3RpdmUiOnRydWUsImFjY2Vzc0ZvciI6IlVTRVIifSwicGFzc3dvcmRFeHBpcmVkIjoiMjAyMy0wMS0yMFQyMzoyNDoyNi41NzFaIiwiaXNBY3RpdmUiOnRydWUsInJlbWVtYmVyTWUiOmZhbHNlLCJsb2dpbkRhdGUiOiIyMDIyLTA3LTI0VDEyOjE5OjMwLjY3N1oiLCJpYXQiOjE2NTg2NjUxNzAsIm5iZiI6MTY1ODY2NTE3MCwiZXhwIjoxNjYwNDY1MTcwfQ.Ad60AtqMSKdTa1WmbLxTYeaUp8IBK-K9cxqRfLXgSUU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/public/user/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"public",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmRiMzEwNzlkMzJhMmM3OWU0NDE3MTIiLCJtb2JpbGVOdW1iZXIiOiIrOTIgMzExMjM0NTY3OSIsImVtYWlsIjoidGVzdDFAZ21haWwuY29tIiwicm9sZSI6eyJuYW1lIjoidXNlciIsInBlcm1pc3Npb25zIjpbXSwiaXNBY3RpdmUiOnRydWUsImFjY2Vzc0ZvciI6IlVTRVIifSwicGFzc3dvcmRFeHBpcmVkIjoiMjAyMy0wMS0yMFQyMzoyNDoyNi41NzFaIiwiaXNBY3RpdmUiOnRydWUsInJlbWVtYmVyTWUiOmZhbHNlLCJsb2dpbkRhdGUiOiIyMDIyLTA3LTI0VDEyOjE5OjMwLjY3N1oiLCJpYXQiOjE2NTg2NjUxNzAsIm5iZiI6MTY1ODY2NTE3MCwiZXhwIjoxNjYwNDY1MTcwfQ.Ad60AtqMSKdTa1WmbLxTYeaUp8IBK-K9cxqRfLXgSUU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Sheraz Raza",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Malik",
+									"type": "text"
+								},
+								{
+									"key": "mobileNumber",
+									"value": "+92 3112345676",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test11@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/update-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Movies List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ5NWFlNTkzMmY1MmVjNTdkNjcxMzAiLCJtb2JpbGVOdW1iZXIiOiIwODExMTExMTIyMiIsImVtYWlsIjoic3VwZXJhZG1pbkBtYWlsLmNvbSIsInJvbGUiOnsibmFtZSI6InN1cGVyYWRtaW4iLCJwZXJtaXNzaW9ucyI6W10sImlzQWN0aXZlIjp0cnVlLCJhY2Nlc3NGb3IiOiJTVVBFUl9BRE1JTiJ9LCJwYXNzd29yZEV4cGlyZWQiOiIyMDIzLTAxLTE5VDEzOjU1OjQ5LjIyM1oiLCJpc0FjdGl2ZSI6dHJ1ZSwicmVtZW1iZXJNZSI6ZmFsc2UsImxvZ2luRGF0ZSI6IjIwMjItMDctMjJUMTk6Mjc6NTAuMTg4WiIsImlhdCI6MTY1ODUxODA3MCwibmJmIjoxNjU4NTE4MDcwLCJleHAiOjE2NjAzMTgwNzB9.theP17x0ZOb_85gOp1YrdWUUtqD2kARn4YILdvnaLFg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/movie/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"movie",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movies Recommended List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ5NWFlNTkzMmY1MmVjNTdkNjcxMzAiLCJtb2JpbGVOdW1iZXIiOiIwODExMTExMTIyMiIsImVtYWlsIjoic3VwZXJhZG1pbkBtYWlsLmNvbSIsInJvbGUiOnsibmFtZSI6InN1cGVyYWRtaW4iLCJwZXJtaXNzaW9ucyI6W10sImlzQWN0aXZlIjp0cnVlLCJhY2Nlc3NGb3IiOiJTVVBFUl9BRE1JTiJ9LCJwYXNzd29yZEV4cGlyZWQiOiIyMDIzLTAxLTE5VDEzOjU1OjQ5LjIyM1oiLCJpc0FjdGl2ZSI6dHJ1ZSwicmVtZW1iZXJNZSI6ZmFsc2UsImxvZ2luRGF0ZSI6IjIwMjItMDctMjJUMTk6Mjc6NTAuMTg4WiIsImlhdCI6MTY1ODUxODA3MCwibmJmIjoxNjU4NTE4MDcwLCJleHAiOjE2NjAzMTgwNzB9.theP17x0ZOb_85gOp1YrdWUUtqD2kARn4YILdvnaLFg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/movie/recommended",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"movie",
+								"recommended"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Give Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ5NWFlNTkzMmY1MmVjNTdkNjcxMzAiLCJtb2JpbGVOdW1iZXIiOiIwODExMTExMTIyMiIsImVtYWlsIjoic3VwZXJhZG1pbkBtYWlsLmNvbSIsInJvbGUiOnsibmFtZSI6InN1cGVyYWRtaW4iLCJwZXJtaXNzaW9ucyI6W10sImlzQWN0aXZlIjp0cnVlLCJhY2Nlc3NGb3IiOiJTVVBFUl9BRE1JTiJ9LCJwYXNzd29yZEV4cGlyZWQiOiIyMDIzLTAxLTE5VDEzOjU1OjQ5LjIyM1oiLCJpc0FjdGl2ZSI6dHJ1ZSwicmVtZW1iZXJNZSI6ZmFsc2UsImxvZ2luRGF0ZSI6IjIwMjItMDctMjFUMjI6MzY6NTAuODE2WiIsImlhdCI6MTY1ODQ0MzAxMCwibmJmIjoxNjU4NDQzMDEwLCJleHAiOjE2NjAyNDMwMTB9.5rDxQER1IfZsrQ2OL4qQ-y_Sj_V-u-0aFWxfKSTVajk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movie\":\"62daebeeb73db2288b2d5739\",\r\n    \"rating\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/movie/rating/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"movie",
+								"rating",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
