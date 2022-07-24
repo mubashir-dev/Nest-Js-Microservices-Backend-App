@@ -23,6 +23,7 @@ import {
 import { UserProfileSerialization } from '../serialization/user.profile.serialization';
 import { UserListSerialization } from '../serialization/user.list.serialization';
 import { UserGetSerialization } from '../serialization/user.get.serialization';
+import { UserUpdateDto } from '../dto/user.update.dto';
 
 @Injectable()
 export class UserService {
@@ -171,13 +172,13 @@ export class UserService {
 
     async updateOneById(
         _id: string,
-        { firstName, lastName }: IUserUpdate
+        { firstName, lastName,email,mobileNumber }: UserUpdateDto
     ): Promise<UserDocument> {
         const user: UserDocument = await this.userModel.findById(_id);
-
         user.firstName = firstName;
         user.lastName = lastName || undefined;
-
+        user.email = email||user.email;
+        user.mobileNumber = mobileNumber||user.mobileNumber;
         return user.save();
     }
 

@@ -20,7 +20,7 @@ import {
 } from '../auth.constant';
 import { Response } from 'src/utils/response/response.decorator';
 import { IResponse } from 'src/utils/response/response.interface';
-import { IUserDocument } from 'src/user/user.interface';
+import { IUserCheckExist, IUserDocument } from 'src/user/user.interface';
 import { ENUM_LOGGER_ACTION } from 'src/logger/logger.constant';
 import {
     AuthJwtGuard,
@@ -35,6 +35,7 @@ import { AuthChangePasswordDto } from '../dto/auth.change-password.dto';
 import { AuthLoginSerialization } from '../serialization/auth.login.serialization';
 import { SuccessException } from 'src/utils/error/exception/error.success.exception';
 import { Logger } from 'src/logger/logger.decorator';
+import { UserUpdateDto } from '../../user/dto/user.update.dto';
 
 @Controller({
     version: '1',
@@ -253,4 +254,54 @@ export class AuthCommonController {
 
         return;
     }
+
+    @Response('Profile has been updated successfully')
+    @AuthJwtGuard()
+    @Patch('/update-profile')
+    async updateProfile(
+        @Body() body: UserUpdateDto,
+        @User('_id') _id: string
+    ): Promise<void> {
+        const user: UserDocument = await this.userService.findOneById(_id);
+        if (!user) {
+            throw new NotFoundException({
+                statusCode: ENUM_USER_STATUS_CODE_ERROR.USER_NOT_FOUND_ERROR,
+                message: 'user.error.notFound',
+            });
+        }
+        const checkExist: IUserCheckExist = await this.userService.checkExist(
+            body.email,
+            body.mobileNumber
+        );
+
+        if (checkExist.email && checkExist.mobileNumber) {
+            throw new BadRequestException({
+                statusCode: ENUM_USER_STATUS_CODE_ERROR.USER_EXISTS_ERROR,
+                message: 'user.error.exist',
+            });
+        } else if (checkExist.email) {
+            throw new BadRequestException({
+                statusCode: ENUM_USER_STATUS_CODE_ERROR.USER_EMAIL_EXIST_ERROR,
+                message: 'user.error.emailExist',
+            });
+        } else if (checkExist.mobileNumber) {
+            throw new BadRequestException({
+                statusCode:
+                ENUM_USER_STATUS_CODE_ERROR.USER_MOBILE_NUMBER_EXIST_ERROR,
+                message: 'user.error.mobileNumberExist',
+            });
+        }
+        try {
+            await this.userService.updateOneById(user._id, body);
+        } catch (e) {
+            throw new InternalServerErrorException({
+                statusCode: ENUM_STATUS_CODE_ERROR.UNKNOWN_ERROR,
+                message: 'http.serverError.internalServerError',
+            });
+        }
+
+        return;
+    }
+
+
 }

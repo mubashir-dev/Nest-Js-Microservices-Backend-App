@@ -16,7 +16,7 @@ export interface IUserCreate {
     salt: string;
 }
 
-export type IUserUpdate = Pick<IUserCreate, 'firstName' | 'lastName'>;
+export type IUserUpdate = Pick<IUserCreate, 'firstName' | 'lastName' | 'email' | 'mobileNumber'>;
 
 export interface IUserCheckExist {
     email: boolean;

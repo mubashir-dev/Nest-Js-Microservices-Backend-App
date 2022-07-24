@@ -122,7 +122,6 @@ export class AuthPublicController {
                 refreshToken,
             };
         } catch (err: any) {
-            console.log("Hellor",err);
             throw new InternalServerErrorException({
                 statusCode: ENUM_STATUS_CODE_ERROR.UNKNOWN_ERROR,
                 message: 'http.serverError.internalServerError',
