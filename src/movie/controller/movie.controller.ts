@@ -5,7 +5,9 @@ import { IResponsePaging } from '../../utils/response/response.interface';
 import { MovieDocument } from '../schema/movie.schema';
 import { MovieListDto } from '../dto/movie.list.dto';
 import { MovieListSerialization } from '../serialization/movie.list.serialization';
-import { AuthJwtGuard } from '../../auth/auth.decorator';
+import { AuthJwtGuard, User } from '../../auth/auth.decorator';
+import { UserMoviePreferenceService } from 'src/user-movie-preference/service/user-movie-preference.service';
+import { MovieRatingService } from '../../movie-rating/service/movie-rating.service';
 
 @Controller({
     version: '1',
@@ -15,10 +17,15 @@ export class MovieController {
     constructor(
         private readonly paginationService: PaginationService,
         private readonly movieService: MovieService,
+        private readonly userMoviePreferenceService: UserMoviePreferenceService,
+        private readonly movieRatingService: MovieRatingService,
+
     ) {}
     @Get('/list')
     @AuthJwtGuard()
     async list(
+        @User()
+            { _id }: Record<string, any>,
         @Query()
             {
                 page,
@@ -70,6 +77,8 @@ export class MovieController {
     @AuthJwtGuard()
     @Get('/recommended')
     async recommended(
+        @User()
+            { _id }: Record<string, any>,
         @Query()
             {
                 page,
@@ -92,12 +101,14 @@ export class MovieController {
                 },
             ];
         }
-
+        const userMoviePreferences = await this.userMoviePreferenceService.findUserMoviePreference(find,_id);
+        const userRatedMovies = await this.movieRatingService.findUserReviewedMovies(_id);
+        console.log('userRatedMovies',userRatedMovies);
         const movies: MovieDocument[] = await this.movieService.findRecommendedAll(find, {
             skip: skip,
             limit: perPage,
             sort,
-        });
+        },userMoviePreferences,userRatedMovies);
 
         const totalData: number = await this.movieService.getTotal({});
         const totalPage: number = await this.paginationService.totalPage(

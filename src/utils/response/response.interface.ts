@@ -9,6 +9,7 @@ export interface IResponsePaging {
     perPage?: number;
     availableSearch?: string[];
     availableSort?: string[];
+    userMoviePreferences?:any[],
     metadata?: Record<string, any>;
     data: Record<string, any>[];
 }

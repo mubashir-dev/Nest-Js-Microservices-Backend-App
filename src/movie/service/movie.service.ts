@@ -8,7 +8,8 @@ import {
 import { MovieDocument, MovieEntity } from '../schema/movie.schema';
 import { plainToInstance } from 'class-transformer';
 import { MovieListSerialization } from '../serialization/movie.list.serialization';
-import { AuthJwtGuard } from '../../auth/auth.decorator';
+import { AuthJwtGuard, User } from '../../auth/auth.decorator';
+import { UserMoviePreferenceDocument } from '../../user-movie-preference/schema/user-movie-preference.schema';
 
 @Injectable()
 export class MovieService {
@@ -17,6 +18,7 @@ export class MovieService {
         private readonly movieModel: Model<MovieDocument>,
     ) {
     }
+
     @AuthJwtGuard()
     async findAll(
         find?: Record<string, any>,
@@ -67,31 +69,29 @@ export class MovieService {
 
             },
             {
-                $unwind:{
-                    "path":"$rating",
-                    "preserveNullAndEmptyArrays":true
-                }
+                $unwind: {
+                    'path': '$rating',
+                    'preserveNullAndEmptyArrays': true,
+                },
             },
             {
-                $match: {
-
-                }
+                $match: {},
             },
             {
-                $addFields:{
-                    "movieRating":{$ifNull:["$rating.ratingAvg",0]}
-                }
+                $addFields: {
+                    'movieRating': { $ifNull: ['$rating.ratingAvg', 0] },
+                },
             },
             {
                 $project: {
                     _id: 1,
-                    title:1,
-                    description:1,
-                    category:1,
-                    rating: { $ifNull:["$movieRating",0]},
-                    isActive:1,
-                    createAt:1,
-                    updatedAt:1
+                    title: 1,
+                    description: 1,
+                    category: 1,
+                    rating: { $ifNull: ['$movieRating', 0] },
+                    isActive: 1,
+                    createAt: 1,
+                    updatedAt: 1,
                 },
             },
 
@@ -114,9 +114,24 @@ export class MovieService {
 
     @AuthJwtGuard()
     async findRecommendedAll(
+        @User()
+            { _id }: Record<string, any>,
         find?: Record<string, any>,
+        userMoviePreferences?: any[],
+        userRatedMovies?: any[],
         options?: IDatabaseFindAllOptions,
     ): Promise<MovieDocument[]> {
+
+        //Logged User Movie preferences
+        const userPreferencesArray = userMoviePreferences.map((value) => {
+            return value.title;
+        });
+
+        //MovieList which is rated by logged user.
+        const userRatedMoviesArray = userRatedMovies.map((value) => {
+            return value.title;
+        });
+
         const movies = this.movieModel.aggregate([
             {
                 $lookup: {
@@ -162,39 +177,41 @@ export class MovieService {
 
             },
             {
-                $unwind:{
-                    "path":"$rating",
-                    "preserveNullAndEmptyArrays":true
-                }
+                $unwind: {
+                    'path': '$rating',
+                    'preserveNullAndEmptyArrays': true,
+                },
             },
             {
-                $addFields:{
-                    "movieRating":{$ifNull:["$rating.ratingAvg",0]}
-                }
+                $addFields: {
+                    'movieRating': { $ifNull: ['$rating.ratingAvg', 0] },
+                },
             },
             {
                 $match:
                     {
-                        $or:[
-                            {"movieRating":{"$in":[2.5,2.0]}},
-                            {"movieRating":{"$in":[1.0,0]}}
+                        $or: [
+                            { 'category.title': { '$in': userPreferencesArray } },
+                            { 'title': { '$in': userRatedMoviesArray } },
+                            { 'movieRating': { '$in': [2.5, 2.0] } },
+                            { 'movieRating': { '$in': [1.0, 0] } },
                         ],
-                    }
-
+                    },
             },
             {
-                $limit: 5
+                $limit: 5,
             },
             {
                 $project: {
                     _id: 1,
-                    title:1,
-                    description:1,
-                    category:1,
-                    rating: { $ifNull:["$movieRating",0]},
-                    isActive:1,
-                    createAt:1,
-                    updatedAt:1
+                    title: 1,
+                    preference: 1,
+                    description: 1,
+                    category: 1,
+                    rating: { $ifNull: ['$movieRating', 0] },
+                    isActive: 1,
+                    createAt: 1,
+                    updatedAt: 1,
                 },
             },
         ]);
@@ -209,7 +226,6 @@ export class MovieService {
         if (options && options.sort) {
             movies.sort(options.sort);
         }
-
         return movies;
     }
 

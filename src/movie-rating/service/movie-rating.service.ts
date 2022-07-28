@@ -32,5 +32,46 @@ export class MovieRatingService {
         ratingExists.rating = parseInt(rating);
         return ratingExists.save();
     }
+    async findUserReviewedMovies(user: string): Promise<any[]> {
+        const userId = new Types.ObjectId(user);
+        console.log('userId',userId);
+        const ratedMovies = this.movieRatingModel.aggregate([
+            {
+                $match:{
+                    user:userId
+                }
+            },
+            {
+                $lookup: {
+                    from: 'movies',
+                    localField: 'movie',
+                    foreignField: '_id',
+                    as: 'ratedMovies',
+                    pipeline: [
+                        {
+                            $project: {
+                                _id:1,
+                                title:1,
+                            },
+                        },
+                    ],
+                },
+            },
+            {
+                $unwind:"$ratedMovies"
+            },
+            {
+                $addFields:{
+                    'title':"$ratedMovies.title"
+                }
+            },
+            {
+                $project:{
+                    title:1,
+                }
+            }
+        ]);
+        return ratedMovies;
+    }
 
 }
