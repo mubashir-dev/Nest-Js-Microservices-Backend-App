@@ -291,7 +291,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ5NWFlNTkzMmY1MmVjNTdkNjcxMzAiLCJtb2JpbGVOdW1iZXIiOiIwODExMTExMTIyMiIsImVtYWlsIjoic3VwZXJhZG1pbkBtYWlsLmNvbSIsInJvbGUiOnsibmFtZSI6InN1cGVyYWRtaW4iLCJwZXJtaXNzaW9ucyI6W10sImlzQWN0aXZlIjp0cnVlLCJhY2Nlc3NGb3IiOiJTVVBFUl9BRE1JTiJ9LCJwYXNzd29yZEV4cGlyZWQiOiIyMDIzLTAxLTE5VDEzOjU1OjQ5LjIyM1oiLCJpc0FjdGl2ZSI6dHJ1ZSwicmVtZW1iZXJNZSI6ZmFsc2UsImxvZ2luRGF0ZSI6IjIwMjItMDctMjJUMTk6Mjc6NTAuMTg4WiIsImlhdCI6MTY1ODUxODA3MCwibmJmIjoxNjU4NTE4MDcwLCJleHAiOjE2NjAzMTgwNzB9.theP17x0ZOb_85gOp1YrdWUUtqD2kARn4YILdvnaLFg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmUxZTU2MmVhOWJkMTQ4MTMzNmIyOWYiLCJtb2JpbGVOdW1iZXIiOiIrOTIgMzExMjM0NTY3OSIsImVtYWlsIjoidGVzdDFAZ21haWwuY29tIiwicm9sZSI6eyJuYW1lIjoidXNlciIsInBlcm1pc3Npb25zIjpbXSwiaXNBY3RpdmUiOnRydWUsImFjY2Vzc0ZvciI6IlVTRVIifSwicGFzc3dvcmRFeHBpcmVkIjoiMjAyMy0wMS0yNlQwMToyNDo1MC43NDFaIiwiaXNBY3RpdmUiOnRydWUsInJlbWVtYmVyTWUiOmZhbHNlLCJsb2dpbkRhdGUiOiIyMDIyLTA3LTI4VDAxOjI0OjUwLjk3NFoiLCJpYXQiOjE2NTg5NzE0OTAsIm5iZiI6MTY1ODk3MTQ5MCwiZXhwIjoxNjYwNzcxNDkwfQ.72FG8firPwl8pylEkA895lIaPNHiukm09r--1up1J2o",
 									"type": "string"
 								}
 							]
@@ -322,7 +322,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ5NWFlNTkzMmY1MmVjNTdkNjcxMzAiLCJtb2JpbGVOdW1iZXIiOiIwODExMTExMTIyMiIsImVtYWlsIjoic3VwZXJhZG1pbkBtYWlsLmNvbSIsInJvbGUiOnsibmFtZSI6InN1cGVyYWRtaW4iLCJwZXJtaXNzaW9ucyI6W10sImlzQWN0aXZlIjp0cnVlLCJhY2Nlc3NGb3IiOiJTVVBFUl9BRE1JTiJ9LCJwYXNzd29yZEV4cGlyZWQiOiIyMDIzLTAxLTE5VDEzOjU1OjQ5LjIyM1oiLCJpc0FjdGl2ZSI6dHJ1ZSwicmVtZW1iZXJNZSI6ZmFsc2UsImxvZ2luRGF0ZSI6IjIwMjItMDctMjFUMjI6MzY6NTAuODE2WiIsImlhdCI6MTY1ODQ0MzAxMCwibmJmIjoxNjU4NDQzMDEwLCJleHAiOjE2NjAyNDMwMTB9.5rDxQER1IfZsrQ2OL4qQ-y_Sj_V-u-0aFWxfKSTVajk",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmUxZTU2MmVhOWJkMTQ4MTMzNmIyOWYiLCJtb2JpbGVOdW1iZXIiOiIrOTIgMzExMjM0NTY3OSIsImVtYWlsIjoidGVzdDFAZ21haWwuY29tIiwicm9sZSI6eyJuYW1lIjoidXNlciIsInBlcm1pc3Npb25zIjpbXSwiaXNBY3RpdmUiOnRydWUsImFjY2Vzc0ZvciI6IlVTRVIifSwicGFzc3dvcmRFeHBpcmVkIjoiMjAyMy0wMS0yNlQwMToyNDo1MC43NDFaIiwiaXNBY3RpdmUiOnRydWUsInJlbWVtYmVyTWUiOmZhbHNlLCJsb2dpbkRhdGUiOiIyMDIyLTA3LTI4VDAxOjI0OjUwLjk3NFoiLCJpYXQiOjE2NTg5NzE0OTAsIm5iZiI6MTY1ODk3MTQ5MCwiZXhwIjoxNjYwNzcxNDkwfQ.72FG8firPwl8pylEkA895lIaPNHiukm09r--1up1J2o",
 									"type": "string"
 								}
 							]
@@ -331,7 +331,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"movie\":\"62daebeeb73db2288b2d5739\",\r\n    \"rating\":4\r\n}",
+							"raw": "{\r\n    \"movie\":\"62daebeeb73db2288b2d573a\",\r\n    \"rating\":4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -349,6 +349,53 @@
 								"api",
 								"movie",
 								"rating",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Movies Preferences",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmUxZTU2MmVhOWJkMTQ4MTMzNmIyOWYiLCJtb2JpbGVOdW1iZXIiOiIrOTIgMzExMjM0NTY3OSIsImVtYWlsIjoidGVzdDFAZ21haWwuY29tIiwicm9sZSI6eyJuYW1lIjoidXNlciIsInBlcm1pc3Npb25zIjpbXSwiaXNBY3RpdmUiOnRydWUsImFjY2Vzc0ZvciI6IlVTRVIifSwicGFzc3dvcmRFeHBpcmVkIjoiMjAyMy0wMS0yNlQwMToyNDo1MC43NDFaIiwiaXNBY3RpdmUiOnRydWUsInJlbWVtYmVyTWUiOmZhbHNlLCJsb2dpbkRhdGUiOiIyMDIyLTA3LTI4VDAxOjI0OjUwLjk3NFoiLCJpYXQiOjE2NTg5NzE0OTAsIm5iZiI6MTY1ODk3MTQ5MCwiZXhwIjoxNjYwNzcxNDkwfQ.72FG8firPwl8pylEkA895lIaPNHiukm09r--1up1J2o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category",
+									"value": "62d95a4c652aac195dd49bcc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/movie/preference/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"movie",
+								"preference",
 								"create"
 							]
 						}
