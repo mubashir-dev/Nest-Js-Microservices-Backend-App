@@ -51,7 +51,7 @@
     "@nestjs/common": "^9.0.3",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.3",
-    "@nestjs/microservices": "^8.4.7",
+    "@nestjs/microservices": "^9.1.2",
     "@nestjs/jwt": "^9.0.0",
     "@nestjs/mongoose": "^9.2.0",
     "@nestjs/passport": "^9.0.0",
